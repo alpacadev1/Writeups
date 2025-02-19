@@ -13,6 +13,11 @@ You can download the challenge files here: **[challenge.zip](#)**
 
 # Solution
 
+Download challenge.zip, unzip it, then run:
+```
+cd drop-in
+```
+
 Ok, so the first hint tells you to run a command—let's do that!  
 
 ```
