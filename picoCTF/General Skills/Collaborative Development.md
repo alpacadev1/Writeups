@@ -33,8 +33,10 @@ Googling what are git branches? led me to some interesting guides:
   "In Git, a branch is a new/separate version of the main repository". - https://www.w3schools.com/git/git_branch.asp?remote=github
 
 Using advice from the hint I git configed myself 
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
+
+```git config --global user.name "Your Name"```
+
+```git config --global user.email "your.email@example.com"```
 
 Now I can start merging. However, a problem arises
 
