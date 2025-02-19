@@ -15,7 +15,7 @@ You can download the challenge files here: **[challenge.zip](#)**
 
 Ok, so the first hint tells you to run a command—let's do that!  
 
-
+```sh
 ┌──(kali㉿kali)-[~/picoCTF/drop-in]
 └─$ git branch -a
   feature/part-1
