@@ -45,22 +45,27 @@ fatal: Exiting because of an unresolved conflict.
 Now merging feature/part-1, I encountered a merge conflict! Git outputted an error,
 
 Using advice from the third hint I can use a text editor, Nano in my case, to edit the file (flag.py)
-
+```sh
 ![image](https://github.com/user-attachments/assets/90648cfe-f074-4a60-96d1-1ad7a3cc67bf)
 
+```sh
 Here you can notice the <<<<< Head, =======, and >>>>>>. Using a Google search I came across good advice regarding this
+```sh
 
 ![image](https://github.com/user-attachments/assets/3d20c406-b8b3-4169-a8d7-abf3e1ed15c4)
 
+```sh
 These markers showed me the code from my main branch and the code from the feature/part-1 branch that was in conflict
 
 
 To resolve the conflict, I realized the challenge likely intended for me to combine the flag parts from different branches 
 
 Now merging part-3 I came across the same issue but using the documentation I researched prior I can resolve this easily!
+```sh
 
 ![image](https://github.com/user-attachments/assets/109566cb-a030-4204-b825-ae603db2f4b8)
 
+```sh
 Now that all parts of the flag have been assembled I can use the command "python3" to run the .py file!
-
+```sh
 ![image](https://github.com/user-attachments/assets/7f15e712-386a-46d0-a27a-b6a1f5485145)
