@@ -50,7 +50,7 @@ hint: as appropriate to mark resolution and make a commit.
 fatal: Exiting because of an unresolved conflict.
 ```
 
-Now merging feature/part-1, I encountered a merge conflict! Git outputted an error,
+While merging feature/part-1, I encountered a merge conflict
 
 Using advice from the third hint I can use a text editor, Nano in my case, to edit the file (flag.py)
 
@@ -67,7 +67,7 @@ These markers showed me the code from my main branch and the code from the featu
 
 To resolve the conflict, I realized the challenge likely intended for me to combine the flag parts from different branches 
 
-Now merging part-3 I came across the same issue but using the documentation I researched prior I can resolve this easily!
+Now merging part-3 I came across the same issue, but using the documentation I researched prior, I can resolve this easily!
 
 ![image](https://github.com/user-attachments/assets/109566cb-a030-4204-b825-ae603db2f4b8)
 
