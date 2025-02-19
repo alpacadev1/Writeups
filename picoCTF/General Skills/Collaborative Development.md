@@ -15,13 +15,14 @@ You can download the challenge files here: **[challenge.zip](#)**
 
 Ok, so the first hint tells you to run a command—let's do that!  
 
-'```sh'
+```
 ┌──(kali㉿kali)-[~/picoCTF/drop-in]
 └─$ git branch -a
   feature/part-1
   feature/part-2
   feature/part-3
   * main
+```
 
 Essentially this command tells git to list out all the branches that Git knows about
 Googling what are git branches? led me to some interesting guides:
@@ -34,14 +35,14 @@ git config --global user.email "your.email@example.com"
 
 Now I can start merging. However, a problem arises
 
-```sh
+```
 ┌──(kali㉿kali)-[~/picoCTF/drop-in]
 └─$ git merge feature/part-1
 error: Merging is not possible because you have unmerged files.
 hint: Fix them up in the work tree, and then use 'git add/rm <file>'
 hint: as appropriate to mark resolution and make a commit.
 fatal: Exiting because of an unresolved conflict.
-```sh
+```
 
 Now merging feature/part-1, I encountered a merge conflict! Git outputted an error,
 
