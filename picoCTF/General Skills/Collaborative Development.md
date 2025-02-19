@@ -15,14 +15,13 @@ You can download the challenge files here: **[challenge.zip](#)**
 
 Ok, so the first hint tells you to run a command—let's do that!  
 
-```sh
+'```sh'
 ┌──(kali㉿kali)-[~/picoCTF/drop-in]
 └─$ git branch -a
   feature/part-1
   feature/part-2
   feature/part-3
   * main
-```sh
 
 Essentially this command tells git to list out all the branches that Git knows about
 Googling what are git branches? led me to some interesting guides:
