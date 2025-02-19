@@ -28,11 +28,14 @@ This command lists all the branches Git knows about. To understand branches bett
 
   "Git branches are effectively a pointer to a snapshot of your changes" https://www.atlassian.com/git/tutorials/usingbranches
 
+
   "In Git, a branch is a new/separate version of the main repository". - https://www.w3schools.com/git/git_branch.asp?remote=github
 
 
 With that knowledge in mind, I followed the hint and configured Git:
+
 ```git config --global user.name "Your Name"```
+
 
 ```git config --global user.email "your.email@example.com"```
 
