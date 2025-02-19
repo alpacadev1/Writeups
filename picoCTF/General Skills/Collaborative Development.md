@@ -26,7 +26,10 @@ Ok, so the first hint tells you to run a command—let's do that!
 
 Essentially this command tells git to list out all the branches that Git knows about
 Googling what are git branches? led me to some interesting guides:
+
   "Git branches are effectively a pointer to a snapshot of your changes" https://www.atlassian.com/git/tutorials/usingbranches
+
+
   "In Git, a branch is a new/separate version of the main repository". - https://www.w3schools.com/git/git_branch.asp?remote=github
 
 Using advice from the hint I git configed myself 
