@@ -7,5 +7,6 @@ challenge.zip
 
 ## Solution:
 
+![image](https://github.com/user-attachments/assets/90648cfe-f074-4a60-96d1-1ad7a3cc67bf)
 
 
