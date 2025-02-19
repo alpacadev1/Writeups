@@ -24,16 +24,14 @@ Ok, so the first hint tells you to run a command—let's do that!
   * main
 ```
 
-Essentially this command tells git to list out all the branches that Git knows about
-Googling what are git branches? led me to some interesting guides:
+This command lists all the branches Git knows about. To understand branches better, I did some quick research and found these useful explanations:
 
   "Git branches are effectively a pointer to a snapshot of your changes" https://www.atlassian.com/git/tutorials/usingbranches
 
-
   "In Git, a branch is a new/separate version of the main repository". - https://www.w3schools.com/git/git_branch.asp?remote=github
 
-Using advice from the hint I git configed myself 
 
+With that knowledge in mind, I followed the hint and configured Git:
 ```git config --global user.name "Your Name"```
 
 ```git config --global user.email "your.email@example.com"```
