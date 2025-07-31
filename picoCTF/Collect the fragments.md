@@ -108,4 +108,5 @@ Encoded part: SNIPPED
 * One thing I noticed was "iVBORw0KGgo" which is the telltale sign that this base64 is likely represents a PNG image
 * On that note, I decided to visit this website: https://base64.guru/converter/decode/image. On here, I simply copy pasted the base64 and converted it to an image
 * The image was the flag!
+<img width="695" height="233" alt="image" src="https://github.com/user-attachments/assets/a453dba3-f1e7-4d36-94cb-c9ec4970bc8d" />
 
