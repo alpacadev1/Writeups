@@ -21,8 +21,8 @@ The program's source code can be downloaded here.
 
 * the eval function (a huge security risk btw) takes our input + the parenthesis
 * knowing this I just typed win and look at what I get
-
-  ``┌──(kali㉿kali)-[~]
+``
+┌──(kali㉿kali)-[~]
 └─$ nc saturn.picoctf.net 63251
 Try entering "getRandomNumber" without the double quotes...
 ==> win
