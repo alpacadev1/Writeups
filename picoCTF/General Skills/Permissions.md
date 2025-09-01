@@ -29,7 +29,9 @@ sudo /usr/bin/vi /root/
 * This command takes that granted privilege to view root
 <img width="1461" height="418" alt="image" src="https://github.com/user-attachments/assets/803cabf5-ddde-48e2-9a3a-7d3badde63de" />
 * This directory has the flag in it!
+
 ```
 sudo /usr/bin/vi /root/.flag.txt
 ```
+
 * This prints the flag! picoCTF{uS1ng_v1m_3dit0r_021d10ab}
