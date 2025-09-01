@@ -49,6 +49,7 @@ pwngdb> r <<< $echo("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 <img width="362" height="185" alt="image" src="https://github.com/user-attachments/assets/2dfec480-3012-45c5-87f1-c19af6956796" />
 * We NEED these arguments or else the function won't continue
 * The 4 bytes are dummy bytes, those 4 bytes are the saved return address; however, we don't want to return, instead we want to continue forward
+
 ```
 +--------------------+
 |  return address    |  <-- saved EIP (4 bytes)   ← this is where QQQQ goes
