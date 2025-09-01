@@ -31,7 +31,12 @@ PBwaWUvQ1RGe1Maybe try checking the other file
 * Paste this in CyberChef
 <img width="623" height="563" alt="image" src="https://github.com/user-attachments/assets/4db61c2d-f87a-4046-a890-6d0fe627eb74" />
 
+* Now take that output and input that into the zip password check
+<img width="606" height="177" alt="image" src="https://github.com/user-attachments/assets/c137aee6-cde3-4712-85fb-bae8fdda0853" />
 
-
-
-<img width="1738" height="631" alt="image" src="https://github.com/user-attachments/assets/215af697-4af5-48ce-af2b-56f9216ed537" />
+* Output the flag.txt to receive the full flag
+```
+┌──(kali㉿kali)-[~/picoCTF/forensics]
+└─$ cat flag           
+picoCTF{R34DING_LOKd_fil56_succ3ss_494c4f32}
+```
