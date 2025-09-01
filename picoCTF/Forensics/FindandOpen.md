@@ -34,7 +34,7 @@ PBwaWUvQ1RGe1Maybe try checking the other file
 * Now take that output and input that into the zip password check
 <img width="606" height="177" alt="image" src="https://github.com/user-attachments/assets/c137aee6-cde3-4712-85fb-bae8fdda0853" />
 
-* Output the flag.txt to receive the full flag
+* Output the flag file to receive the full flag
 ```
 ┌──(kali㉿kali)-[~/picoCTF/forensics]
 └─$ cat flag           
