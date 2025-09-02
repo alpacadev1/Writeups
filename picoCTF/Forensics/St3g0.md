@@ -12,7 +12,7 @@ Download image
 wget https://artifacts.picoctf.net/c/215/pico.flag.png 
 ```
 
-* From the challenge name, St3g0, likely means the flag is hidden using an LSB encoding technique (https://wiki.bi0s.in/forensics/lsb/)
+* From the challenge name, St3g0, likely the flag is hidden using an LSB encoding technique (https://wiki.bi0s.in/forensics/lsb/)
 * Using zsteg (a forensics tool), we can decode any encoded hidden message within this PNG file
 
 <img width="1260" height="233" alt="image" src="https://github.com/user-attachments/assets/4aaf7350-fb86-4af7-8f61-5a2b78e35130" />
