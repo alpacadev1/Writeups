@@ -13,7 +13,7 @@ Now presenting cowsay as a service
 * To test it out, I said hello
 <img width="675" height="290" alt="image" src="https://github.com/user-attachments/assets/32fbb71a-ff76-4517-bfd9-53a052af79d2" />
 
-* Essentially, this endpoint takes whatever we say and reflects it to the website
+* Output from cowsay is sent back to the client as plain text.
 * The challenge provides us with an index.js file, so let's take a look at that
 <img width="1122" height="402" alt="image" src="https://github.com/user-attachments/assets/70889d46-69b0-45fc-87d4-be5346d7bdaf" />
 
