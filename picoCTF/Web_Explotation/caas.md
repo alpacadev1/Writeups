@@ -7,7 +7,7 @@ Description
 Now presenting cowsay as a service
 
 # Work
-* So off the bat, the websites tell us this:
+* So off the bat, the website tells us this:
 <img width="693" height="160" alt="image" src="https://github.com/user-attachments/assets/928ee1fe-fa54-4680-aad6-509b5dcd249a" />
 
 * To test it out, I said hello
