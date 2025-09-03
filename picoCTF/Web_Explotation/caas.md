@@ -18,8 +18,8 @@ Now presenting cowsay as a service
 <img width="1122" height="402" alt="image" src="https://github.com/user-attachments/assets/70889d46-69b0-45fc-87d4-be5346d7bdaf" />
 
 * Visiting /cowsay/hello runs the shell command: /usr/games/cowsay hello
-* Output from cowsay is sent back to the client as plain text.
-* However, this is a huge problem as seen in the picture: req.params.message is passed directly into a shell command.
+* Using system-level functions like exec() with user-provided input that is not properly validated or sanitized is a dictionary definition of a command injection attack
+* This is a huge problem as seen in the picture: req.params.message is passed directly into a shell command.
 * So, for example, if I ran /cowsay/hello;ls it would run /usr/games/cowsay hello;ls, which lists files on the server
 
 <img width="585" height="381" alt="image" src="https://github.com/user-attachments/assets/5d3f2154-350c-4f4f-ae24-715b137b1228" />
