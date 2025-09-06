@@ -40,9 +40,9 @@ ctf-player@pico-chall$ which flaghasher
 
 * This binary takes in the contents of /root/flag.txt and creates a hash
 * We are only given the hash, not the contents of flag.txt, so we have to figure out a way to retrieve this content
+* Maybe if we look at the permissions, something might show up
 
 <img width="848" height="125" alt="image" src="https://github.com/user-attachments/assets/9a6757cc-f723-436e-9720-fa478c4b0464" />
-
 * The s stands for setuid, and it basically means: when this binary is executed, run it with the file owner’s privileges, not the caller’s
 * So if you can exploit with this file, you can run commands as root
 
