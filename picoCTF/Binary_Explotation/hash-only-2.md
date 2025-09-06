@@ -76,6 +76,7 @@ export PATH=/tmp:$PATH
 * This is because the system looks through the directories listed in $PATH, from left to right. Now, when system() looks for md5sum, it finds the fake one before the real one
 
 <img width="1381" height="207" alt="image" src="https://github.com/user-attachments/assets/a8e8fad2-97b3-4610-b5d3-3c783a2d1663" />
+
 * Notice the hashtag; this means we have a root shell!
 
 
