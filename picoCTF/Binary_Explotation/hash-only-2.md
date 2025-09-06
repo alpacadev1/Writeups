@@ -43,11 +43,11 @@ ctf-player@pico-chall$ which flaghasher
 * Maybe if we look at the permissions, something might show up
 
 <img width="848" height="125" alt="image" src="https://github.com/user-attachments/assets/9a6757cc-f723-436e-9720-fa478c4b0464" />
+
 * The s stands for setuid, and it basically means: when this binary is executed, run it with the file owner’s privileges, not the caller’s
-* So if you can exploit with this file, you can run commands as root
+* So if you can exploit this file, you can run commands as root
 
 * If we run strings on the binary, we see some interesting output
-
 <img width="583" height="597" alt="image" src="https://github.com/user-attachments/assets/f792029f-d9a8-4934-903e-c208aa569d54" />
 
 * This command essentially does this: ```system("/bin/bash -c 'md5sum /root/flag.txt'");```
