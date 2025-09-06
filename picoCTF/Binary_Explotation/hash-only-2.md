@@ -12,8 +12,8 @@ So off the bat, I notice the shell is an rbash shell:
 
 * An rbash shell is essentially: "A restricted shell is used to set up an environment more controlled than the standard shell".
 * This means accessing basic commands is a struggle since rbash restricts us from doing this
-
 * Now that we know that, let's try to locate where the binary is
+
 ```
 ctf-player@pico-chall$ which flaghasher
 /usr/local/bin/flaghasher
@@ -35,31 +35,40 @@ ctf-player@pico-chall$ which flaghasher
 
 
 * Now that we have upgraded our shell, try to see if we can run the flaghasher binary
-<img width="868" height="167" alt="image" src="https://github.com/user-attachments/assets/9c96876c-3170-4554-968c-a52893292af0" />
 
-<img width="848" height="125" alt="image" src="https://github.com/user-attachments/assets/9a6757cc-f723-436e-9720-fa478c4b0464" />
-* The s stands for setuid, and it basically means: when this binary is executed, run it with the file owner’s privileges, not the caller’s
-* So if you can exploit with this file, you can run commands as root
+<img width="868" height="167" alt="image" src="https://github.com/user-attachments/assets/9c96876c-3170-4554-968c-a52893292af0" />
 
 * This binary takes in the contents of /root/flag.txt and creates a hash
 * We are only given the hash, not the contents of flag.txt, so we have to figure out a way to retrieve this content
+
+<img width="848" height="125" alt="image" src="https://github.com/user-attachments/assets/9a6757cc-f723-436e-9720-fa478c4b0464" />
+
+* The s stands for setuid, and it basically means: when this binary is executed, run it with the file owner’s privileges, not the caller’s
+* So if you can exploit with this file, you can run commands as root
+
 * If we run strings on the binary, we see some interesting output
+
 <img width="583" height="597" alt="image" src="https://github.com/user-attachments/assets/f792029f-d9a8-4934-903e-c208aa569d54" />
 
 * This command essentially does this: ```system("/bin/bash -c 'md5sum /root/flag.txt'");```
 * This is a huge vulnerability because if you can control what binary gets executed as md5sum, you can run any command as root (remember our SUID permission).
 
 * So now what if having md5sum, we instead create a fake md5sum that gives us root privileges.
+
 ```
 echo "/bin/sh" > /tmp/md5sum
 chmod +x /tmp/md5sum
 ```
+
 * Typically, "/bin/sh" spawns a regular bash shell, but since flaghasher inherits root privileges, we spawn a root shell
 * Now place this /tmp at the start of the $PATH
+
 ```
 export PATH=/tmp:$PATH
 ```
+
 * This is because the system looks through the directories listed in $PATH, from left to right. Now, when system() looks for md5sum, it finds the fake one before the real one
+
 <img width="1381" height="207" alt="image" src="https://github.com/user-attachments/assets/a8e8fad2-97b3-4610-b5d3-3c783a2d1663" />
 
 * That's the flag! picoCTF{Co-@utH0r_Of_Sy5tem_b!n@riEs_f6f1b3d4}
