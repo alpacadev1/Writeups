@@ -47,8 +47,14 @@ ctf-player@pico-chall$ which flaghasher
 * The s stands for setuid, and it basically means: when this binary is executed, run it with the file owner’s privileges, not the caller’s
 * So if you can exploit this file, you can run commands as root
 
+
+
+
 * If we run strings on the binary, we see some interesting output
 <img width="583" height="597" alt="image" src="https://github.com/user-attachments/assets/f792029f-d9a8-4934-903e-c208aa569d54" />
+
+
+
 
 * This command essentially does this: ```system("/bin/bash -c 'md5sum /root/flag.txt'");```
 * This is a huge vulnerability because if you can control what binary gets executed as md5sum, you can run any command as root (remember our SUID permission).
