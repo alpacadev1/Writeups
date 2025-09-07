@@ -9,6 +9,7 @@ Hints: Please be mindful of the size of pointers in this binary
 
 # Work
 <img width="776" height="176" alt="image" src="https://github.com/user-attachments/assets/438bf28c-9f73-4177-9b64-188af8a56343" />
+
 * So in the code, the main function calls call_function() let's see what that's about
 
 <img width="692" height="317" alt="image" src="https://github.com/user-attachments/assets/f9208dd8-e24d-48de-bd72-0b0f08d8a134" />
