@@ -14,7 +14,7 @@ Hints: Please be mindful of the size of pointers in this binary
 
 <img width="692" height="317" alt="image" src="https://github.com/user-attachments/assets/f9208dd8-e24d-48de-bd72-0b0f08d8a134" />
 
-* The function has a printf without any formatting specifiers. The format argument has many different specifiers, which could allow an attacker to leak data if they control the format argument to printf - CTF101
+* The function has a printf without any formatting specifiers. "The format argument has many different specifiers, which could allow an attacker to leak data if they control the format argument to printf" - CTF101
 * So knowing this, we can try to figure out where the buffer begins
 
 <img width="1192" height="92" alt="image" src="https://github.com/user-attachments/assets/7ca28bb5-7651-4177-9d5a-594a77af06c9" />
