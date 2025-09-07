@@ -70,6 +70,3 @@ Through experimentation, we find:
 - Craft the payload to overwrite the return address with that of `win()`.
 
 ---
-
-**References:**
-- [Format String Exploits](https://owasp.org/www-community/attacks/Format_string_vulnerability)
