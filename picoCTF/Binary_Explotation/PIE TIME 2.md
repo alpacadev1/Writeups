@@ -64,15 +64,7 @@ Through experimentation, we find:
 
 ---
 
-### 5. **Exploit Strategy**
-
-- **Leak the return address** using `%19$p`.
-- **Calculate the base address** using the leaked address.
-- **Overwrite the return address** with the address of `win()`, by manipulating the format string (e.g., using `%n` specifier).
-
----
-
-### 6. **Flag Retrieval**
+### 5. **Flag Retrieval**
 
 - Alter the last 3 digits of the leaked return address (`441`) to the `win()` address (`36a`).
 - Craft the payload to overwrite the return address with that of `win()`.
