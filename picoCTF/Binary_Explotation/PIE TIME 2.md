@@ -1,45 +1,92 @@
-# URL
-https://play.picoctf.org/practice/challenge/491?originalEvent=74&page=2
+# picoCTF: PIE TIME 2 (Writeup)
 
-# Challenge
-Can you try to get the flag? I'm not revealing anything anymore!!
+**Challenge URL:**  
+[PIE TIME 2 on picoCTF](https://play.picoctf.org/practice/challenge/491?originalEvent=74&page=2)
 
-Hints: What vulnerability can be exploited to leak the address?
-Hints: Please be mindful of the size of pointers in this binary
+---
 
-# Work
-<img width="776" height="176" alt="image" src="https://github.com/user-attachments/assets/438bf28c-9f73-4177-9b64-188af8a56343" />
+## Challenge
 
-* So in the code, the main function calls call_function() let's see what that's about
+> Can you try to get the flag? I'm not revealing anything anymore!!
 
-<img width="692" height="317" alt="image" src="https://github.com/user-attachments/assets/f9208dd8-e24d-48de-bd72-0b0f08d8a134" />
+**Hints:**
+- What vulnerability can be exploited to leak the address?
+- Please be mindful of the size of pointers in this binary
 
-* The function has a printf without any formatting specifiers. "The format argument has many different specifiers, which could allow an attacker to leak data if they control the format argument to printf" - CTF101
-* So knowing this, we can try to figure out where the buffer begins
+---
 
-<img width="1192" height="92" alt="image" src="https://github.com/user-attachments/assets/7ca28bb5-7651-4177-9d5a-594a77af06c9" />
+## Solution Approach
 
-* In here, the 414141 is our input since A = 41 in hex
-* This means our input gets passed in the 8th parameter of the stack, which represents the start of the buffer
-  
-<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/3ae74e5c-af55-467d-8f43-129886c3400b" />
+### 1. **Initial Analysis**
 
-* So after the call_functions() ends, it needs to go back to main to continue executing. Before executing call_function(), the stack saves the address of the next instruction of main to return back to
-* This ends in 441
-* So basically, we need to create a buffer that eventually leads us to this 441 address and change 441 to 36a (look at win() address in the image below)
+The challenge binary's `main()` function calls `call_function()`. Let's inspect what happens inside.
 
-* <img width="1918" height="1020" alt="image" src="https://github.com/user-attachments/assets/cc25f5a1-10e0-439a-b6ae-1534be27492a" />
+![call_function() code](https://github.com/user-attachments/assets/f9208dd8-e24d-48de-bd72-0b0f08d8a134)
 
-* So through trial and error, look for the address ending in 441 
+Inside `call_function()`, there's a call to `printf()` **without a format specifier**. This is a classic format string vulnerability, which allows us to leak stack data if we control the format string.
 
-<img width="1900" height="228" alt="image" src="https://github.com/user-attachments/assets/126fb83c-d334-4d66-9f8d-ed153954da88" />
+---
 
-* We find this 441 address at the 19th parameter! However, this isn't the actual address we need to use the %p format
-  
+### 2. **Locating Our Input on the Stack**
 
+When sending input (`AAAA`), we observe its position in the stack:
 
-<img width="1895" height="185" alt="image" src="https://github.com/user-attachments/assets/9abd994b-0687-43ce-be87-27b5668afef3" />
+![Buffer location](https://github.com/user-attachments/assets/7ca28bb5-7651-4177-9d5a-594a77af06c9)
 
-* Here at the 19th %p we see 441 again
-* Now alter the last 3 digits to point to win()
-* Boom! thats the flag!
+- The value `41414141` (hex for "AAAA") appears as the **8th parameter** to `printf`.
+- This means our input is accessible via the 8th format argument (e.g., `%8$p`).
+
+---
+
+### 3. **Understanding the Return Address**
+
+After `call_function()` finishes, the program returns to `main()`. The stack stores the address to return to:
+
+![Return address location](https://github.com/user-attachments/assets/3ae74e5c-af55-467d-8f43-129886c3400b)
+
+- The address ending in `441` is the return location.
+- Our goal: **Overwrite the return address to jump to the `win()` function instead of returning to main.**
+- The address for `win()` ends with `36a` (see image below).
+
+![win() function address](https://github.com/user-attachments/assets/cc25f5a1-10e0-439a-b6ae-1534be27492a)
+
+---
+
+### 4. **Finding the Right Stack Offset**
+
+Through experimentation, we find:
+
+- The return address (`...441`) is the **19th parameter** on the stack.
+- Using `%19$p` in our format string, we can leak this address.
+
+![19th parameter leak](https://github.com/user-attachments/assets/126fb83c-d334-4d66-9f8d-ed153954da88)
+![19th %p shows 441](https://github.com/user-attachments/assets/9abd994b-0687-43ce-be87-27b5668afef3)
+
+---
+
+### 5. **Exploit Strategy**
+
+- **Leak the return address** using `%19$p`.
+- **Calculate the base address** using the leaked address.
+- **Overwrite the return address** with the address of `win()`, by manipulating the format string (e.g., using `%n` specifier).
+
+---
+
+### 6. **Flag Retrieval**
+
+- Alter the last 3 digits of the leaked return address (`441`) to the `win()` address (`36a`).
+- Craft the payload to overwrite the return address with that of `win()`.
+- **Flag obtained! 🎉**
+
+---
+
+## Key Takeaways
+
+- **Format String Vulnerability:** Unchecked user input in format strings allows stack leaks and arbitrary writes.
+- **Stack Offsets:** Identifying the correct parameter offset is crucial for both leaking and overwriting addresses.
+- **PIE Binaries:** Address randomization requires dynamic calculation of function addresses.
+
+---
+
+**References:**
+- [Format String Exploits](https://owasp.org/www-community/attacks/Format_string_vulnerability)
