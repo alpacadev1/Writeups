@@ -19,7 +19,7 @@
 
 ### 1. **Initial Analysis**
 
-The challenge binary's `main()` function calls `call_function()`. Let's inspect what happens inside.
+The challenge binary's `main()` function calls `call_function()`. 
 
 ![call_function() code](https://github.com/user-attachments/assets/f9208dd8-e24d-48de-bd72-0b0f08d8a134)
 
@@ -76,15 +76,6 @@ Through experimentation, we find:
 
 - Alter the last 3 digits of the leaked return address (`441`) to the `win()` address (`36a`).
 - Craft the payload to overwrite the return address with that of `win()`.
-- **Flag obtained! 🎉**
-
----
-
-## Key Takeaways
-
-- **Format String Vulnerability:** Unchecked user input in format strings allows stack leaks and arbitrary writes.
-- **Stack Offsets:** Identifying the correct parameter offset is crucial for both leaking and overwriting addresses.
-- **PIE Binaries:** Address randomization requires dynamic calculation of function addresses.
 
 ---
 
