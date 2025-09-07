@@ -96,5 +96,5 @@ Please enter your string:
 picoCTF{argum3nt5_4_d4yZ_59cd5643}       
 ```
 
-* WOOHOOOOOOOOOOO WE FOUND THE FLAG!!!!
+* WOOHOOOOOOOOOOO FLAG!!!!
   
