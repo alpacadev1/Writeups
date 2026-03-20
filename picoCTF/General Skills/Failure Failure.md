@@ -20,7 +20,7 @@ A **load balancer** is a service that distributes traffic across multiple server
 In this specific challenge, the service used is called HAProxy - an open source load balancer.
 
 ---
-
+The challenge provides a `haproxy.cfg` file
 ```
 backend servers
     option httpchk GET /
